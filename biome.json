@@ -26,6 +26,9 @@
 					"fix": "safe",
 					"options": {}
 				}
+			},
+			"a11y": {
+				"noSvgWithoutTitle": "off"
 			}
 		}
 	},
