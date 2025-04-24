@@ -4,7 +4,6 @@ import { defineConfig } from 'vite'
 import dts from 'vite-plugin-dts'
 import { peerDependencies } from './package.json'
 
-// https://vite.dev/config/
 export default defineConfig({
 	plugins: [
 		react(),
@@ -14,6 +13,14 @@ export default defineConfig({
 		}),
 		tailwindcss(),
 	],
+	resolve: {
+		alias: {
+			'@': '/src',
+			'@components': '/src/components',
+			'@utils': '/src/utils',
+			'@assets': '/src/assets',
+		},
+	},
 	build: {
 		lib: {
 			entry: 'src/index',
