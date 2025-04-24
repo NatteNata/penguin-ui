@@ -1,1 +1,1 @@
-export { DialogComponent } from "./dialog.component";
+export { Dialog } from './dialog.component'
