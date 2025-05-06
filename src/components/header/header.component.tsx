@@ -11,7 +11,7 @@ export const Header = ({ children, className }: Props) => {
 	return (
 		<header
 			className={cn(
-				'flex items-center justify-between border-dark-300 border-b bg-dark-700 px-6 py-4',
+				'flex h-20 items-center justify-between border-dark-300 border-b bg-dark-700',
 				className,
 			)}
 		>

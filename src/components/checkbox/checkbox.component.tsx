@@ -15,6 +15,7 @@ import { Label } from '../input/input.component'
 type CheckboxProps = {
 	helperMessage?: string
 	label?: ReactNode
+	hasError?: boolean
 } & ComponentPropsWithoutRef<typeof RadixCheckbox.Root>
 
 export const Checkbox = forwardRef<
@@ -22,7 +23,7 @@ export const Checkbox = forwardRef<
 	CheckboxProps
 >(
 	(
-		{ className, disabled, helperMessage, id, label, required, ...restProps },
+		{ className, disabled, id, label, required, hasError, ...restProps },
 		ref,
 	) => {
 		const finalId = useGenerateId(id)
@@ -44,6 +45,7 @@ export const Checkbox = forwardRef<
 							'disabled:cursor-not-allowed disabled:border-light-900 disabled:bg-dark-100',
 							'data-[state=checked]:bg-light-100 disabled:data-[state=checked]:bg-dark-100',
 							'invalid:border-danger-500',
+							hasError && 'border-danger-500',
 						)}
 						disabled={disabled}
 						id={finalId}
@@ -71,16 +73,3 @@ export const Checkbox = forwardRef<
 		)
 	},
 )
-/*
-import * as RadixCheckbox from '@radix-ui/react-checkbox'
-import IconCheckmark from '../../assets/icons/components/Checkmark'
-
-export const CheckboxComponent = () => {
-	return (
-		<RadixCheckbox.Root className='flex h-5 w-5 items-center justify-center rounded border-2 border-gray-300'>
-			<RadixCheckbox.Indicator>
-				<IconCheckmark className='h-3 w-3 text-black' />
-			</RadixCheckbox.Indicator>
-		</RadixCheckbox.Root>
-	)
-}*/

@@ -1,1 +1,1 @@
-export * from '@components/checkbox/checkbox.component.tsx'
+export { Checkbox } from './checkbox.component'

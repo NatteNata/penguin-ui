@@ -14,6 +14,7 @@ import { cn, useGenerateId } from '@utils'
 type Props = {
 	helperMessage?: string
 	label?: ReactNode | string
+	hasError?: boolean
 } & ComponentPropsWithoutRef<'input'>
 
 export const Input = forwardRef<HTMLInputElement, Props>(
@@ -21,6 +22,7 @@ export const Input = forwardRef<HTMLInputElement, Props>(
 		const {
 			className,
 			helperMessage,
+			hasError,
 			id,
 			inputMode,
 			label,
@@ -57,14 +59,14 @@ export const Input = forwardRef<HTMLInputElement, Props>(
 					<input
 						autoComplete={name}
 						className={cn(
-							'block rounded-sm border-2 border-dark-100 bg-dark-500 placeholder-light-900 shadow-light-900 shadow-sm',
+							'block rounded-sm border-2 border-dark-100 bg-dark-500 shadow-light-900 shadow-sm placeholder:text-light-900 focus:placeholder:invisible',
 							'peer w-full truncate px-3 py-1.5 text-base/6',
 							'hover:border hover:border-light-900 hover:bg-inherit group-hover:text-light-100' +
-								' group-hover:placeholder-light-100',
-							'focus-visible:border-none focus-visible:outline-none focus-visible:ring focus-visible:ring-primary-500',
-							'active:border active:bg-inherit active:text-light-100 active:placeholder-light-100' +
+								'focus-visible:border-none focus-visible:outline-none focus-visible:ring focus-visible:ring-primary-500',
+							'active:border active:bg-inherit active:text-light-100 active:placeholder:invisible' +
 								' active:border-light-100 active:stroke-light-100',
 							'invalid:border-none invalid:ring-2 invalid:ring-red-500',
+							hasError && 'border-red-500 ring-2 ring-red-500',
 							'remove-autofill bg-dark-900',
 							type === 'search' && 'pl-10',
 							type === 'password' && 'pr-10',

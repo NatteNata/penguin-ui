@@ -1,7 +1,7 @@
-import { Button, Dialog } from '@components'
+import { Button, DialogA } from '@components'
 import type { Meta, StoryObj } from '@storybook/react'
 
-const meta: Meta<typeof Dialog> = {
+const meta: Meta<typeof DialogA> = {
 	argTypes: {
 		title: {
 			type: 'string',
@@ -11,12 +11,12 @@ const meta: Meta<typeof Dialog> = {
 			type: 'string',
 			description: 'Editable in controls',
 		},
-		buttonTitle: {
+		closeButtonTitle: {
 			type: 'string',
 			description: 'Editable in controls',
 		},
 	},
-	component: Dialog,
+	component: DialogA,
 	decorators: [
 		Story => (
 			<div
@@ -32,15 +32,32 @@ const meta: Meta<typeof Dialog> = {
 	title: 'Components/Dialog',
 }
 
-type Story = StoryObj<typeof Dialog>
+type Story = StoryObj<typeof DialogA>
 
 export default meta
 
-export const Default: Story = {
+export const NoActionButton: Story = {
 	args: {
 		title: 'Email sent',
 		description: 'We have sent a link to confirm your email to epam@epam.com',
-		buttonTitle: 'OK',
+		closeButtonTitle: 'OK',
+		trigger: (
+			<>
+				<Button variant='primary' type='button'>
+					Show modal
+				</Button>
+			</>
+		),
+	},
+}
+
+export const WithActionButton: Story = {
+	args: {
+		title: 'Close Post',
+		description:
+			'Do you really want to quit editing the post? If you close changes won’t be saved.',
+		closeButtonTitle: 'Yes',
+		actionButtonTitle: 'No',
 		trigger: (
 			<>
 				<Button variant='primary' type='button'>
