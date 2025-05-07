@@ -54,6 +54,7 @@ export const Default: Story = {
 		label: 'Email',
 		name: 'email',
 		placeholder: 'yourmail@example.com',
+		value: 'Test testing',
 	},
 }
 
@@ -91,6 +92,7 @@ export const Password: Story = {
 	args: {
 		name: 'password',
 		placeholder: 'Password',
+		value: 'Test sttestingsed',
 	},
 	render: args => (
 		<div>
